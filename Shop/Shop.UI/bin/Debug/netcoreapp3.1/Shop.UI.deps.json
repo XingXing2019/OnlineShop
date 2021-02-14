@@ -28,6 +28,7 @@
           "Microsoft.EntityFrameworkCore.Design": "5.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.3",
+          "Shop.Application": "1.0.0",
           "Shop.Database": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -1458,6 +1459,18 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
+        }
+      },
+      "Shop.Application/1.0.0": {
+        "dependencies": {
+          "Shop.Database": "1.0.0",
+          "Shop.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Shop.Application.dll": {}
+        },
+        "compile": {
+          "Shop.Application.dll": {}
         }
       },
       "Shop.Database/1.0.0": {
@@ -3799,6 +3812,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "Shop.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Shop.Database/1.0.0": {
       "type": "project",

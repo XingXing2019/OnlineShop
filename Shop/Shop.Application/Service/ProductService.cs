@@ -26,7 +26,7 @@ namespace Shop.Application.Service
                 Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
-                Price = product.Price
+                Price = product.Price.ToString()
             };
         }
 
@@ -37,7 +37,7 @@ namespace Shop.Application.Service
                 Id = x.Id,
                 Name = x.Name,
                 Description = x.Description,
-                Price = x.Price
+                Price = x.Price.ToString()
             }).ToListAsync();
         }
 
@@ -47,7 +47,7 @@ namespace Shop.Application.Service
             {
                 Name = vm.Name,
                 Description = vm.Description,
-                Price = vm.Price
+                Price = decimal.Parse(vm.Price)
             };
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
@@ -60,7 +60,7 @@ namespace Shop.Application.Service
             var product = await _context.Products.FindAsync(vm.Id);
             product.Name = vm.Name;
             product.Description = vm.Description;
-            product.Price = vm.Price;
+            product.Price = decimal.Parse(vm.Price);
             await _context.SaveChangesAsync();
             return vm;
         }

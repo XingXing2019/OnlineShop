@@ -7,3 +7,8 @@ F:\C#\Projects\OnlineShop\Shop\Shop.Application\obj\Debug\netcoreapp3.1\Shop.App
 F:\C#\Projects\OnlineShop\Shop\Shop.Application\obj\Debug\netcoreapp3.1\Shop.Application.csproj.CoreCompileInputs.cache
 F:\C#\Projects\OnlineShop\Shop\Shop.Application\obj\Debug\netcoreapp3.1\Shop.Application.dll
 F:\C#\Projects\OnlineShop\Shop\Shop.Application\obj\Debug\netcoreapp3.1\Shop.Application.pdb
+F:\C#\Projects\OnlineShop\Shop\Shop.Application\bin\Debug\netcoreapp3.1\Shop.Database.dll
+F:\C#\Projects\OnlineShop\Shop\Shop.Application\bin\Debug\netcoreapp3.1\Shop.Domain.dll
+F:\C#\Projects\OnlineShop\Shop\Shop.Application\bin\Debug\netcoreapp3.1\Shop.Database.pdb
+F:\C#\Projects\OnlineShop\Shop\Shop.Application\bin\Debug\netcoreapp3.1\Shop.Domain.pdb
+F:\C#\Projects\OnlineShop\Shop\Shop.Application\obj\Debug\netcoreapp3.1\Shop.Application.csproj.CopyComplete
