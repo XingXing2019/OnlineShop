@@ -89,3 +89,7 @@ F:\C#\Projects\OnlineShop\Shop\Shop.UI\bin\Debug\netcoreapp3.1\Microsoft.EntityF
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\bin\Debug\netcoreapp3.1\Shop.Application.dll
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\bin\Debug\netcoreapp3.1\Shop.Application.pdb
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Index.cshtml.g.cs
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\_AdminLayout.cshtml.g.cs
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\_ViewStart.cshtml.g.cs
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Orders.cshtml.g.cs
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Stock.cshtml.g.cs

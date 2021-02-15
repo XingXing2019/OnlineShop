@@ -12,11 +12,13 @@ namespace Shop.UI.Controllers
     [Route("[controller]")]
     public class AdminController : Controller
     {
-        private IProductService _productService;
+        private readonly IProductService _productService;
+        private readonly IStockService _stockService;
 
         public AdminController(ApplicationDbContext context)
         {
             _productService = new ProductService(context);
+            _stockService = new StockService(context);
         }
 
         [HttpGet("products")] 
@@ -33,5 +35,19 @@ namespace Shop.UI.Controllers
 
         [HttpPut("products")]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductViewModel vm) => Ok(await _productService.Put(vm));
+
+
+
+        [HttpGet("stock")]
+        public async Task<IActionResult> GetStocks() => Ok(await _stockService.GetAll());
+
+        [HttpDelete("stock/{id?}")]
+        public async Task<IActionResult> DeleteStock(int id) => Ok(await _stockService.Delete(id));
+
+        [HttpPost("stock")]
+        public async Task<IActionResult> CreateStock([FromBody] StockViewModel vm) => Ok(await _stockService.Post(vm));
+
+        [HttpPut("stock")]
+        public async Task<IActionResult> UpdateStock([FromBody] StockListViewModel vm) => Ok(await _stockService.Put(vm));
     }
 }
