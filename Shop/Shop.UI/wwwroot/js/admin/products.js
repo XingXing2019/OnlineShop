@@ -55,7 +55,10 @@ var app = new Vue({
             axios.post('/Admin/products', this.productModel)
                 .then(res => {
                     console.log(res);
-                    this.products.push(res.data);
+                    if(res.data)
+                        this.products.push(res.data);
+                    else 
+                        alert("Please enter valid price");
                 })
                 .catch(err => {
                     console.log(err);
@@ -69,7 +72,10 @@ var app = new Vue({
             axios.put('/Admin/products', this.productModel)
                 .then(res => {
                     console.log(res);
-                    this.products.splice(this.objectIndex, 1, res.data);
+                    if(res.data)
+                        this.products.splice(this.objectIndex, 1, res.data);
+                    else
+                        alert("Please enter valid price");
                 })
                 .catch(err => {
                     console.log(err);

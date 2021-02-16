@@ -19,7 +19,7 @@ namespace Shop.Application.Service
 
         public async Task<IEnumerable<ProductViewModel>> GetAll()
         {
-            return await _context.Products
+            var products = await _context.Products
                 .Include(x => x.Stocks)
                 .Select(x => new ProductViewModel
                 {
@@ -30,17 +30,21 @@ namespace Shop.Application.Service
                         Id = y.Id,
                         ProductId = y.ProductId,
                         Description = y.Description,
-                        Qty = y.Qty
+                        Qty = y.Qty.ToString()
                     })
                 }).ToListAsync();
+            return products;
         }
 
         public async Task<StockViewModel> Post(StockViewModel vm)
         {
+            if (vm == null) return null;
+            var isValueQty = int.TryParse(vm.Qty, out var qty);
+            if (!isValueQty) return null;
             var stock = new Stock
             {
                 Description = vm.Description,
-                Qty = vm.Qty,
+                Qty = qty,
                 ProductId = vm.ProductId
             };
             await _context.Stocks.AddAsync(stock);
@@ -51,14 +55,17 @@ namespace Shop.Application.Service
 
         public async Task<StockListViewModel> Put(StockListViewModel vm)
         {
+            if (vm == null) return null;
             var stocks = new List<Stock>();
             foreach (var stock in vm.Stocks)
             {
+                var isValueQty = int.TryParse(stock.Qty, out var qty);
+                if (!isValueQty) return null;
                 stocks.Add(new Stock
                 {
                     Id = stock.Id,
                     Description = stock.Description,
-                    Qty = stock.Qty,
+                    Qty = qty,
                     ProductId = stock.ProductId
                 });
             }

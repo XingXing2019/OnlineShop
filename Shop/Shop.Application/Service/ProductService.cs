@@ -43,11 +43,14 @@ namespace Shop.Application.Service
 
         public async Task<ProductViewModel> Post(ProductViewModel vm)
         {
+            if (vm == null) return null;
+            var isValidPrice = decimal.TryParse(vm.Price, out var price);
+            if (!isValidPrice) return null;
             var product = new Product
             {
                 Name = vm.Name,
                 Description = vm.Description,
-                Price = decimal.Parse(vm.Price)
+                Price = price
             };
             await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
@@ -57,10 +60,13 @@ namespace Shop.Application.Service
 
         public async Task<ProductViewModel> Put(ProductViewModel vm)
         {
+            if (vm == null) return null;
+            var isValidPrice = decimal.TryParse(vm.Price, out var price);
+            if (!isValidPrice) return null;
             var product = await _context.Products.FindAsync(vm.Id);
             product.Name = vm.Name;
             product.Description = vm.Description;
-            product.Price = decimal.Parse(vm.Price);
+            product.Price = price;
             await _context.SaveChangesAsync();
             return vm;
         }

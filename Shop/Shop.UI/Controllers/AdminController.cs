@@ -38,16 +38,16 @@ namespace Shop.UI.Controllers
 
 
 
-        [HttpGet("stock")]
-        public async Task<IActionResult> GetStocks() => Ok(await _stockService.GetAll());
+        [HttpGet("stocks")]
+        public async Task<IActionResult> GetStock() => Ok(await _stockService.GetAll());
 
-        [HttpDelete("stock/{id?}")]
+        [HttpDelete("stocks/{id?}")]
         public async Task<IActionResult> DeleteStock(int id) => Ok(await _stockService.Delete(id));
 
-        [HttpPost("stock")]
+        [HttpPost("stocks")]
         public async Task<IActionResult> CreateStock([FromBody] StockViewModel vm) => Ok(await _stockService.Post(vm));
 
-        [HttpPut("stock")]
+        [HttpPut("stocks")]
         public async Task<IActionResult> UpdateStock([FromBody] StockListViewModel vm) => Ok(await _stockService.Put(vm));
     }
 }
