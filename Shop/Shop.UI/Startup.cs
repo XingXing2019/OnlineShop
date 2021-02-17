@@ -27,9 +27,16 @@ namespace Shop.UI
         {
             services.AddRazorPages();
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration["DefaultConnection"],
-                    b => b.MigrationsAssembly("Shop.Database")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["DefaultConnection"], b => b.MigrationsAssembly("Shop.Database")));
+
+            services.AddMvc();
+
+            // Add session for cart cookie
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = "Cart";
+                options.Cookie.MaxAge = TimeSpan.FromDays(365);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,11 +55,14 @@ namespace Shop.UI
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCookiePolicy();
 
             app.UseRouting();
 
             app.UseAuthorization();
-
+            
+            app.UseSession();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

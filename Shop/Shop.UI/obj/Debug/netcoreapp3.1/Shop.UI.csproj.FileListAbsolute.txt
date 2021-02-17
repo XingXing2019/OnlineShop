@@ -93,3 +93,5 @@ F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\_ViewStart.cshtml.g.cs
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Orders.cshtml.g.cs
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Stock.cshtml.g.cs
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Product.cshtml.g.cs
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Cart.cshtml.g.cs

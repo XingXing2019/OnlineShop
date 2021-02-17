@@ -30,7 +30,8 @@ namespace Shop.Application.Service
                         Id = y.Id,
                         ProductId = y.ProductId,
                         Description = y.Description,
-                        Qty = y.Qty.ToString()
+                        Qty = y.Qty.ToString(),
+                        InStock = y.Qty > 0
                     })
                 }).ToListAsync();
             return products;

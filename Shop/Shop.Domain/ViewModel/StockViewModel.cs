@@ -6,5 +6,6 @@
         public int ProductId { get; set; }
         public string Description { get; set; }
         public string Qty { get; set; }
+        public bool InStock { get; set; }
     }
 }

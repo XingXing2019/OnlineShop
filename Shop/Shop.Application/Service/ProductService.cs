@@ -12,7 +12,7 @@ namespace Shop.Application.Service
     public class ProductService : IProductService
     {
         private readonly ApplicationDbContext _context;
-
+       
         public ProductService(ApplicationDbContext context)
         {
             _context = context;
@@ -27,6 +27,28 @@ namespace Shop.Application.Service
                 Name = product.Name,
                 Description = product.Description,
                 Price = product.Price.ToString()
+            };
+        }
+
+        public async Task<ProductViewModel> Get(string productName)
+        {
+            var product = await _context.Products
+                .Include(x => x.Stocks)
+                .FirstOrDefaultAsync(x => x.Name == productName);
+            
+            if (product == null) return null;
+            return new ProductViewModel
+            {
+                Id = product.Id,
+                Description = product.Description,
+                Price = product.Price.ToString(),
+                Stocks = product.Stocks.Select(x => new StockViewModel
+                {
+                    Id = x.Id,
+                    Description = x.Description,
+                    Qty = x.Qty.ToString(),
+                    InStock = x.Qty > 0
+                })
             };
         }
 
