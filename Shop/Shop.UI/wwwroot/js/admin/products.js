@@ -9,7 +9,7 @@ var app = new Vue({
                 id: 0,
                 name: "Product Name",
                 description: "Product Description",
-                price: "2.99"
+                price: "$2.99"
             },
             products: [],
     },

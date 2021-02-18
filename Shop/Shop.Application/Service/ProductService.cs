@@ -26,7 +26,7 @@ namespace Shop.Application.Service
                 Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
-                Price = product.Price.ToString()
+                Price = $"${product.Price}"
             };
         }
 
@@ -41,7 +41,7 @@ namespace Shop.Application.Service
             {
                 Id = product.Id,
                 Description = product.Description,
-                Price = product.Price.ToString(),
+                Price = $"${product.Price}",
                 Stocks = product.Stocks.Select(x => new StockViewModel
                 {
                     Id = x.Id,
@@ -59,14 +59,15 @@ namespace Shop.Application.Service
                 Id = x.Id,
                 Name = x.Name,
                 Description = x.Description,
-                Price = x.Price.ToString()
+                Price = $"${x.Price}"
             }).ToListAsync();
         }
 
         public async Task<ProductViewModel> Post(ProductViewModel vm)
         {
-            if (vm == null) return null;
-            var isValidPrice = decimal.TryParse(vm.Price, out var price);
+            if (vm == null) return null; 
+            var trimPrice = vm.Price.Replace("$", "");
+            var isValidPrice = decimal.TryParse(trimPrice, out var price);
             if (!isValidPrice) return null;
             var product = new Product
             {
@@ -83,7 +84,8 @@ namespace Shop.Application.Service
         public async Task<ProductViewModel> Put(ProductViewModel vm)
         {
             if (vm == null) return null;
-            var isValidPrice = decimal.TryParse(vm.Price, out var price);
+            var trimPrice = vm.Price.Replace("$", "");
+            var isValidPrice = decimal.TryParse(trimPrice, out var price);
             if (!isValidPrice) return null;
             var product = await _context.Products.FindAsync(vm.Id);
             product.Name = vm.Name;

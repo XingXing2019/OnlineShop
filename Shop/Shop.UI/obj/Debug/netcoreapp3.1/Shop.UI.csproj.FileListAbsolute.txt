@@ -95,3 +95,5 @@ F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\Stock.cshtml.g.cs
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Product.cshtml.g.cs
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Cart.cshtml.g.cs
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll

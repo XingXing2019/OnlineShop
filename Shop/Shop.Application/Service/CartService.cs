@@ -6,9 +6,9 @@ using Shop.Database;
 using Shop.Domain.Model;
 using Shop.Domain.ViewModel;
 
-namespace Shop.UI.Services
+namespace Shop.Application.Service
 {
-    public class CartService : ICartService
+    public class CartService
     {
         private readonly ISession _session;
         private readonly ApplicationDbContext _context;
@@ -41,7 +41,7 @@ namespace Shop.UI.Services
                 .Select(x => new CartProductViewModel
                 {
                     Name = x.Product.Name,
-                    Price = x.Product.Price.ToString(),
+                    Price = $"${x.Product.Price}",
                     StockId = cartProduct.StockId,
                     Qty = cartProduct.Qty
                 }).FirstOrDefault();

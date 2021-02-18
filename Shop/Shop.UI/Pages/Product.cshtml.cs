@@ -6,7 +6,6 @@ using Shop.Application.Service;
 using Shop.Database;
 using Shop.Domain.Model;
 using Shop.Domain.ViewModel;
-using Shop.UI.Services;
 
 namespace Shop.UI.Pages
 {
