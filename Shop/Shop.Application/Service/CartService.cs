@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -19,34 +20,58 @@ namespace Shop.Application.Service
             _context = context;
         }
 
-        public void Post(CartProduct cartProduct)
+        public void Post(CartProduct request)
         {
-            var stringObject = JsonConvert.SerializeObject(cartProduct);
-            
-            // TODO: appending the cart
+            var stringObject = _session.GetString("cart");
+            var cartList = string.IsNullOrEmpty(stringObject)
+                ? new List<CartProduct>()
+                : JsonConvert.DeserializeObject<List<CartProduct>>(stringObject);
+
+            var cart = cartList.Find(x => x.StockId == request.StockId);
+
+            if (cart == null)
+            {
+                cartList.Add(new CartProduct
+                {
+                    StockId = request.StockId,
+                    Qty = request.Qty
+                });
+            }
+            else
+                cart.Qty += request.Qty;
+
+            stringObject = JsonConvert.SerializeObject(cartList);
 
             _session.SetString("cart", stringObject);
         }
 
-        public CartProductViewModel Get()
+        public IEnumerable<CartProductViewModel> Get()
         {
-            // TODO account for multiple items in the cart
-
             var stringObject = _session.GetString("cart");
-            var cartProduct = JsonConvert.DeserializeObject<CartProduct>(stringObject);
+            if (string.IsNullOrEmpty(stringObject))
+                return new List<CartProductViewModel>();
 
-            var vm = _context.Stocks
+            var cartList = JsonConvert.DeserializeObject<List<CartProduct>>(stringObject);
+            var stockIds = cartList.Select(x => x.StockId);
+
+            var stockList = _context.Stocks
                 .Include(x => x.Product)
-                .Where(x => x.Id == cartProduct.StockId)
-                .Select(x => new CartProductViewModel
-                {
-                    Name = x.Product.Name,
-                    Price = $"${x.Product.Price}",
-                    StockId = cartProduct.StockId,
-                    Qty = cartProduct.Qty
-                }).FirstOrDefault();
+                .Where(x => stockIds.Contains(x.Id)).ToList();
 
-            return vm;
+            var response = new List<CartProductViewModel>();
+            foreach (var stock in stockList)
+            {
+                var cart = cartList.FirstOrDefault(x => x.StockId == stock.Id);
+                response.Add(new CartProductViewModel
+                {
+                    Name = stock.Product.Name,
+                    Price = $"${stock.Product.Price}",
+                    StockId = stock.Id,
+                    Qty = cart?.Qty ?? 0
+                });
+            }
+
+            return response;
         }
     }
 }

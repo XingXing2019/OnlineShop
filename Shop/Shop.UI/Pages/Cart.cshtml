@@ -4,8 +4,12 @@
 }
 
 <div>
-    <p>@Model.CartProduct.Name</p>
-    <p>@Model.CartProduct.Price</p>
-    <p>@Model.CartProduct.Qty</p>
-    <p>@Model.CartProduct.StockId</p>
+    @foreach (var c in Model.Cart)
+    {
+        <p>@c.Name</p>
+        <p>@c.Price</p>
+        <p>@c.Qty</p>
+        <p>@c.StockId</p>
+        <hr/>
+    }
 </div>

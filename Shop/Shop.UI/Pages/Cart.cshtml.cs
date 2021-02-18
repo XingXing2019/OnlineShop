@@ -14,7 +14,7 @@ namespace Shop.UI.Pages
     {
         private readonly ApplicationDbContext _context;
 
-        public CartProductViewModel CartProduct { get; set; }
+        public IEnumerable<CartProductViewModel> Cart { get; set; }
 
         public CartModel(ApplicationDbContext context)
         {
@@ -23,7 +23,7 @@ namespace Shop.UI.Pages
 
         public IActionResult OnGet()
         {
-            CartProduct = new CartService(HttpContext.Session, _context).Get();
+            Cart = new CartService(HttpContext.Session, _context).Get();
             return Page();
         }
     }
