@@ -20,7 +20,7 @@ using Shop.UI;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"30f5ffd3a956b24b941161446537b84f016e0de7", @"/Pages/Admin/Orders.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cc89f9d87ee47402434e9d6268c16a4c581ff966", @"/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"65ab2ef2d163a6251af152bfc9b3c7e0d527a978", @"/Pages/_ViewImports.cshtml")]
     public class Pages_Admin_Orders : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {
         #pragma warning disable 1998
