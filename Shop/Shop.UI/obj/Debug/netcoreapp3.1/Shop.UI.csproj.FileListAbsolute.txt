@@ -99,3 +99,5 @@ F:\C#\Projects\OnlineShop\Shop\Shop.UI\bin\Debug\netcoreapp3.1\Microsoft.AspNetC
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Components\Cart\Default.cshtml.g.cs
 F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Components\Cart\Small.cshtml.g.cs
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Checkout\CustomerInformation.cshtml.g.cs
+F:\C#\Projects\OnlineShop\Shop\Shop.UI\obj\Debug\netcoreapp3.1\Razor\Pages\Checkout\Payment.cshtml.g.cs
